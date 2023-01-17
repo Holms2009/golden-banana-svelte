@@ -1,0 +1,116 @@
+@import '../../app/styles/mixins';
+@import '../../app/styles/variables';
+
+.Header {
+  box-sizing      : border-box;
+  padding         : 5px 50px;
+  display         : flex;
+  justify-content : space-between;
+  align-items     : center;
+  background-color: $primaryBG;
+  border-bottom   : 1px solid $primaryBorder;
+  position        : relative;
+  z-index         : 100;
+
+  &__logos {
+    display: flex;
+  }
+
+  &__logo-link {
+    margin-right: 20px;
+  }
+
+  &__game-logo {
+    width     : 80px;
+    height    : 50px;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+
+    &:hover {
+      filter: drop-shadow(0 0 10px gold);
+    }
+  }
+
+  &__logo-text {
+    position       : absolute;
+    width          : db(450);
+    height         : db(100);
+    background     : url('../../assets/img/logo-text.svg') no-repeat 50% 50%;
+    background-size: cover;
+    top            : 0px;
+    left           : 50%;
+    transform      : translateX(-50%);
+    filter         : drop-shadow(0 0 10px $primaryBlue);
+  }
+
+  &__gm-state-toggle {
+    width     : 20px;
+    height    : 20px;
+    position  : fixed;
+    top       : 0px;
+    left      : 0px;
+    background: none;
+    border    : none;
+    cursor    : pointer;
+  }
+
+  &__gm-form {
+    box-sizing      : border-box;
+    padding         : 20px;
+    background-color: $primaryBG;
+    border          : 4px solid $primaryBorder;
+    border-radius   : 15px;
+    position        : fixed;
+    top             : 50%;
+    left            : 50%;
+    transform       : translate(-50%, -50%);
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+  }
+
+  &__gm-password {
+    margin-bottom   : 25px;
+    padding         : 5px 10px;
+    font-size       : 30px;
+    background-color: $darkBG;
+    border          : 3px solid $primaryBorder;
+    border-radius   : 10px;
+    color           : $white;
+  }
+
+  @media screen and (max-width: 1366px) {
+    &__logo-text {
+      top: 10px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 10px 20px;
+
+    &__logo-text {
+      width : t(450);
+      height: t(100);
+      top   : 0;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 7px 15px;
+
+    &__logo-text {
+      width : mb(400);
+      height: mb(100);
+      top   : 10px;
+    }
+
+    &__game-logo {
+      width : 60px;
+      height: 37px;
+
+      &:hover {
+        filter: none;
+      }
+    }
+  }
+}

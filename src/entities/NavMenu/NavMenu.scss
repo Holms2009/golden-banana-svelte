@@ -1,0 +1,58 @@
+@import '../../app/styles/mixins';
+@import '../../app/styles/variables';
+
+.NavMenu {
+  display        : flex;
+  align-items    : center;
+  justify-content: space-between;
+
+  &__item {
+    padding-left   : 20px;
+    display        : flex;
+    align-items    : center;
+    text-decoration: none;
+    cursor         : pointer;
+
+    &:not(:last-of-type) {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      .NavMenu__text {
+        filter: drop-shadow(0 0 10px gold);
+      }
+    }
+  }
+
+  &__icon {
+    width       : 30px;
+    height      : 30px;
+    margin-right: 7px;
+  }
+
+  &__text {
+    margin    : 0;
+    font-size : 20px;
+    color     : $textColor;
+    transition: filter 0.3s ease;
+  }
+
+  &_horizontal {
+    flex-direction: row;
+
+    &__item {
+      &:not(:last-of-type) {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &_vertical {
+    flex-direction: column;
+    align-items   : flex-start;
+
+    .NavMenu__item {
+      padding: 0;
+    }
+  }
+}
